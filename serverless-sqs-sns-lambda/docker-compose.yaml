@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: ./lambdas
+      dockerfile: Dockerfile
+    volumes:
+      - ./lambdas/:/app
+    ports:
+      - "8100:8100"
+
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:3.1.0
+    ports:
+      - "4566:4566"
+      - "4510-4559:4510-4559"
+    environment:
+      - DEBUG=0
+      - AWS_DEFAULT_REGION=sa-east-1
+    # volumes:
+    #   - "./.localstack_data:/var/lib/localstack"
+    # networks:
+    #   - challenge
