@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    image: deirofelippe/aws-ec2-terraform-python:v1
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      target: builder
+    container_name: app
+    # command: "sleep inf"
+    stop_signal: SIGINT
+    ports:
+      - '3000:3000'
+    volumes:
+      - "./:/app"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
