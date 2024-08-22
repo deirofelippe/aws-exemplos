@@ -1,0 +1,12 @@
+Log created: 2023-12-05T02:39:23.420124000Z
+Process ID:  50082 (0xc3a2)
+Parent PID:  3766 (0xeb6)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: teste2_default_1701738445513_14512
+Arg[3]: --startvm
+Arg[4]: 7ea31729-905f-49cf-a9c6-240fbd25ab04
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2

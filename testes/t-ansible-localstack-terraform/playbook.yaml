@@ -1,0 +1,17 @@
+---
+- name: Playbook to Create IAM User on Localstack
+  hosts: 127.0.0.1
+​
+  tasks:
+  - name: Create user and attach managed policy
+    community.aws.iam_user:
+      name: testuser
+      ec2_url: http://localhost:4566
+      managed_policies:
+        - arn:aws:iam::aws:policy/PowerUserAccess
+      state: present
+    register: new_user
+      
+  - name: print all values returned
+    debug:
+      msg: "{{ new_user.iam_user.user }}"
